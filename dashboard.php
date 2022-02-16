@@ -107,7 +107,8 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Save your account information</h5>
                         <p class="card-text fst-italic">(Click on this button it will show you a form that you can use to add or save your accounts)</p>
-                        <button class="btn btn-primary" type="button">Go somewhere</button>
+                        <button class="btn btn-primary" type="button">Add Accounts</button>
+                        
                     </div>
                     </div>
                 </div>
@@ -144,4 +145,4 @@
             </div>
         </div>
     </div>
-
+<?php include "templates/footer.php";?>
