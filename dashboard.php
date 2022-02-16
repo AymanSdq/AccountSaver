@@ -7,6 +7,39 @@
         header("Location: index.php?");
         exit();
     }else{
+        // Adding account into databse
+        if(isset($_POST["addacc"])){
+            //User  from session
+            $usr = $_SESSION["username_sess"];
+            // Fetching the UserId from the users table
+            $get_userid = $conn->prepare("SELECT UserID from users WHERE Username = ?");
+            $userid = $get_userid->execute([$usr]);
+            // After Clicking the button we call the input value
+            $webname = $_POST["webname"];
+            $username = $_POST["username"];
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            // Checking if the inputs are empty or not 
+            if(empty($webname) or empty($username) or empty($email) or empty($password)){
+                header("Location: dashboard.php?msg=sorry-inputs-empty");
+                exit();
+            } else {
+                // Inserting Accounts Data
+                $ins_account = $conn->prepare("INSERT INTO savedacc (UserID,Websitename,Usernameacc,Emailacc,Passwordacc) VALUES (?,?,?,?,?)");
+                $ins_account->execute([$userid,$webname,$username,$email,$password]);
+                header("Location: dashboard.php?msg=added-success");
+                exit();
+            }
+
+        }
+        // Logout code 
+        if(isset($_POST["logout"])){
+            // Delete the Session to logout
+            session_unset();
+            session_destroy();
+            header("Location: index.php");
+            exit();
+        }
         ?>
                     <body id="page-top">
 
@@ -125,35 +158,30 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form>
+                                                    <form method="POST" action="">
                                                         <!-- Website Name -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Website Name :</label>
-                                                            <input type="text" name="webnale" class="form-control" id="recipient-name">
-                                                        </div>
-                                                        <!-- Website Link  -->
-                                                        <div class="form-group">
-                                                            <label for="recipient-name" class="float-left">Website Link :</label>
-                                                            <input type="text" name="weblink" class="form-control" id="recipient-name">
+                                                            <input type="text" name="webname" class="form-control" id="recipient-name" required>
                                                         </div>
                                                         <!-- Username of Account  -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Username :</label>
-                                                            <input type="text" name="username" class="form-control" id="recipient-name">
+                                                            <input type="text" name="username" class="form-control" id="recipient-name" required>
                                                         </div>
                                                         <!-- Email of Account  -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Email :</label>
-                                                            <input type="text" name="email" class="form-control" id="recipient-name">
+                                                            <input type="text" name="email" class="form-control" id="recipient-name" required>
                                                         </div>
                                                         <!-- Password of Account  -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Password :</label>
-                                                            <input type="password" name="password" class="form-control" id="recipient-name">
+                                                            <input type="password" name="password" class="form-control" id="recipient-name" required>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Send message</button>
+                                                            <button type="submit" name="addacc" class="btn btn-success">Save</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -189,10 +217,12 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-primary" href="login.html">Logout</a>
-                                    </div>
+                                    <form action="" method="POST">
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-danger" name="logout" >Logout</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

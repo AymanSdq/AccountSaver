@@ -30,7 +30,7 @@
                         exit();
                     }else{
                         $_SESSION["username_sess"] = $username;
-                        header("Location: dashboard.php?");
+                        header("Location: dashboard.php");
                         exit();
                     }
                 }else{
