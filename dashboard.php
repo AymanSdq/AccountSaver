@@ -98,19 +98,20 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
+                <!-- The form that will help you to add accounts -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <div class="card">
+                    <div class="card-header text-center">
+                        Add Accounts
                     </div>
-                    <div class="row">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Save your account information</h5>
+                        <p class="card-text fst-italic">(Click on this button it will show you a form that you can use to add or save your accounts)</p>
+                        <button class="btn btn-primary" type="button">Go somewhere</button>
                     </div>
-
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
         </div>
