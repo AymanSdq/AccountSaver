@@ -2,7 +2,7 @@
     include "templates/header.php";
     session_start();
 
-    if(isset($_SESSION["username"])){
+    if(isset($_SESSION["username_sess"])){
         header("Location: dashboard.php");
         exit();
     }else{
