@@ -9,6 +9,10 @@ body {
     min-height: 90vh;
 }
 
+#container-fluid{
+    min-height: 90vh;
+}
+
 .logo{
     font-family: 'Redressed', cursive;
 }
