@@ -61,51 +61,14 @@
                                     <!-- Topbar -->
                                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                                        <!-- Sidebar Toggle (Topbar) -->
-                                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                                            <i class="fa fa-bars"></i>
-                                        </button>
+                                        <h4 class="logo text-dark" >AccountSaver</h4>
 
-                                        <!-- Topbar Search -->
-                                        <form
-                                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                                    aria-label="Search" aria-describedby="basic-addon2">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-primary" type="button">
-                                                        <i class="fas fa-search fa-sm"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                    
+                                    
 
                                         <!-- Topbar Navbar -->
                                         <ul class="navbar-nav ml-auto">
 
-                                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                                            <li class="nav-item dropdown no-arrow d-sm-none">
-                                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-search fa-fw"></i>
-                                                </a>
-                                                <!-- Dropdown - Messages -->
-                                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                                    aria-labelledby="searchDropdown">
-                                                    <form class="form-inline mr-auto w-100 navbar-search">
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control bg-light border-0 small"
-                                                                placeholder="Search for..." aria-label="Search"
-                                                                aria-describedby="basic-addon2">
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-primary" type="button">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </li>
                                             <!-- Nav Item - User Information -->
                                             <li class="nav-item dropdown no-arrow">
                                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -141,6 +104,8 @@
 
                                     </nav>
                                     <!-- End of Topbar -->
+                                    <!-- Information about accounts -->
+                                    
 
                                     <!-- The form that will help you to add accounts -->
                                     <div class="container-fluid">
@@ -208,11 +173,40 @@
                                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                                             </div>
-                                            <div class="card-footer text-muted">
-                                                Password Needed
+                                            <div class="card-footer text-muted border border-secondary">
+                                                PIN Needed <a href="#">Forgot Pin</a>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <!-- warning & policy  -->
+                                        <div class="card-deck">
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/dashboard/stff.jpg" alt="Card image cap">
+                                                <div class="card-body">
+                                                <h5 class="card-title text-center">Staff Help</h5>
+                                                <p class="card-text">Staff is available 24/7 just to help you and make sure that you are having a really good experience.</p>
+                                                <button class="btn btn-primary btn-block">View Page</button>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/dashboard/datacenter.jpg" alt="Card image cap">
+                                                <div class="card-body">
+                                                <h5 class="card-title text-center">Data Center</h5>
+                                                <p class="card-text">Our Data center is one of the biggest data center in the world. Just to give you the best exoerience.</p>
+                                                <button class="btn btn-primary btn-block">View Page</button>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/dashboard/story.jpg" alt="Card image cap">
+                                                <div class="card-body">
+                                                <h5 class="card-title text-center">Story</h5>
+                                                <p class="card-text">Read our story how did we get the idea and how did we begin . our project Idea since the day one .</p>
+                                                <button class="btn btn-primary btn-block">View Page</button>
+                                                </div>
                                             </div>
                                         </div>
                                         
+
                                     </div>
                                     <!-- footer  -->
                                     <!-- /.container-fluid -->
