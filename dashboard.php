@@ -194,17 +194,73 @@
                                         </div>
                                         <hr>
                                         <!-- indormation -->
-                                        <div class="card d-flex ">
+                                        <div class="row p-3 border bg-primary">
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="" class="card-img-top" alt="...">
                                                 <div class="card-body">
-                                                    <div class="card " style="width: 18rem;">
-                                                    <img class="card-img-top" src="img/dashboard/team.jpg" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Card title</h5>
-                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                    </div>
-                                                    </div>
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
                                                 </div>
+                                            </div>
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
+                                                <img src="..." class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                         
                                     </div>
