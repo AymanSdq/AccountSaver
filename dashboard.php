@@ -7,6 +7,11 @@
         header("Location: index.php?");
         exit();
     }else{
+        //fetching full name from 
+        $usr_sess = $_SESSION["username_sess"];
+        $userinfo_fetch = $conn->prepare("SELECT * FROM users WHERE Username = ?");
+        $userinfo_fetch->execute([$usr_sess]);
+        $userinfo = $userinfo_fetch->fetch();
         // Adding account into databse
         if(isset($_POST["addacc"])){
             //User  from session
@@ -105,7 +110,7 @@
                                             <li class="nav-item dropdown no-arrow">
                                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $userinfo["Fullname"] ?></span>
                                                     <img class="img-profile rounded-circle"
                                                         src="img/undraw_profile.svg">
                                                 </a>
@@ -140,7 +145,7 @@
                                     <!-- The form that will help you to add accounts -->
                                     <div class="container-fluid">
                                         <div class="card">
-                                        <div class="card-header text-center">
+                                        <div class="card-header text-center bg-primary text-white">
                                             Add Accounts
                                         </div>
                                         <div class="card-body text-center">
@@ -194,73 +199,18 @@
                                         </div>
                                         <hr>
                                         <!-- indormation -->
-                                        <div class="row p-3 border bg-primary">
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
+                                        <div class="card text-center">
+                                            <div class="card-header bg-success text-white">
+                                                Show Accounts
                                             </div>
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Special title treatment</h5>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
                                             </div>
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
+                                            <div class="card-footer text-muted">
+                                                Password Needed
                                             </div>
-                                        
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                            <div class="card  my-2 mx-2 col-xy-2" style="width: 18rem;">
-                                                <img src="..." class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                            
                                         </div>
                                         
                                     </div>
