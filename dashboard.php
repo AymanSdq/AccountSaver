@@ -189,8 +189,12 @@
                                             </div>
                                             </div>
                                         </div>
+                                        <!-- End of cadr body  -->
+                                        
                                         </div>
+                                        
                                     </div>
+                                    
                                     <!-- /.container-fluid -->
                                 </div>
                                 <!-- End of Main Content -->
