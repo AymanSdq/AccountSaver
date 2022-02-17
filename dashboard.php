@@ -194,9 +194,9 @@
                                         </div>
                                         <hr>
                                         <!-- indormation -->
-                                        <div class="card">
-                                                <div class="card-body d-flex card-primary ">
-                                                    <div class="card bg-secondary text-white" style="width: 18rem;">
+                                        <div class="card d-flex ">
+                                                <div class="card-body">
+                                                    <div class="card " style="width: 18rem;">
                                                     <img class="card-img-top" src="img/dashboard/team.jpg" alt="Card image cap">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Card title</h5>
