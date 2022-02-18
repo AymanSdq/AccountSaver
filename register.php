@@ -1,4 +1,5 @@
 <?php
+    $pageTitle = 'AccountSaver - Register';
     include "templates/header.php";
     session_start();
 

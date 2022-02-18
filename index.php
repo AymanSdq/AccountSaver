@@ -1,4 +1,5 @@
 <?php 
+    $pageTitle = 'AccountSaver - Login';
     include "templates/header.php";
 
     session_start();

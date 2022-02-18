@@ -1,4 +1,5 @@
-<?php 
+<?php
+    $pageTitle = 'AccountSaver - Dashboard';
     include "templates/header.php";
 
     session_start();
