@@ -14,10 +14,11 @@
                     $pass = trim($_POST["passw"]);
                     $fullname = trim($_POST["fullname"]);
                     $rpass = trim($_POST["reppass"]);
+                    $pincode = trim($_POST["pincode"]);
                     $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);;
                     
                     // Checking if it's empty
-                    if(empty($username) or empty($email) or empty($pass) or empty($rpass) or empty($fullname)){
+                    if(empty($username) or empty($email) or empty($pass) or empty($rpass) or empty($fullname) or empty($pincode)){
                         header("Location: register.php?msg=sorry-inputs-empty");
                         exit();
                     }else if($pass!=$rpass){
@@ -34,8 +35,8 @@
                             exit();
                         } else {
                             // Adding user into database
-                            $add_account = $conn->prepare("INSERT INTO users (Username,Email,Password,Fullname) VALUES (?,?,?,?)");
-                            $add_account->execute([$username,$email,$hashed_pass,$fullname]);
+                            $add_account = $conn->prepare("INSERT INTO users (Username,Email,Password,Fullname,PIN) VALUES (?,?,?,?,?)");
+                            $add_account->execute([$username,$email,$hashed_pass,$fullname,$pincode]);
                             if($add_account){
                                 header("Location: index.php");
                                 exit();
@@ -81,6 +82,9 @@
                                                     <input type="password" class="form-control form-control-user"
                                                         id="exampleRepeatPassword"  name="reppass" placeholder="Repeat Password" required>
                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text"  name="pincode" class="form-control form-control-user" maxlength="4" placeholder="PIN CODE" id="pin" pattern="^[0-9]{4}$git " required/>
                                             </div>
                                             <button type="submit" name="register" class="btn btn-primary btn-user btn-block">
                                                 Register Account
