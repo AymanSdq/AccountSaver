@@ -18,21 +18,23 @@
             //User  from session
             $usr = $_SESSION["username_sess"];
             // Fetching the UserId from the users table
-            $get_userid = $conn->prepare("SELECT UserID from users WHERE Username = ?");
-            $userid = $get_userid->execute([$usr]);
+            $get_userid = $conn->prepare("SELECT * from users WHERE Username = ?");
+            $get_userid->execute([$usr]);
+            $userid = $get_userid->fetch();
             // After Clicking the button we call the input value
             $webname = $_POST["webname"];
             $username = $_POST["username"];
             $email = $_POST["email"];
             $password = $_POST["password"];
+            $UsID = $userid['UserID'];
             // Checking if the inputs are empty or not 
             if(empty($webname) or empty($username) or empty($email) or empty($password)){
-                header("Location: dashboard.php?msg=sorry-inputs-empty");
+                header("Location: dashboard.php?msg=sorry-inputs-empty&userID=$UsID");
                 exit();
             } else {
                 // Inserting Accounts Data
                 $ins_account = $conn->prepare("INSERT INTO savedacc (UserID,Websitename,Usernameacc,Emailacc,Passwordacc) VALUES (?,?,?,?,?)");
-                $ins_account->execute([$userid,$webname,$username,$email,$password]);
+                $ins_account->execute([$UsID,$webname,$username,$email,$password]);
                 header("Location: dashboard.php?msg=added-success");
                 exit();
             }

@@ -13,6 +13,26 @@
         $userinfo_fetch = $conn->prepare("SELECT * FROM users WHERE Username = ?");
         $userinfo_fetch->execute([$usr_sess]);
         $userinfo = $userinfo_fetch->fetch();
+        // User ID 
+        $userID = $userinfo["UserID"];
+
+        // Fetching the User Data table
+        $tb_Userdata = $conn->prepare("SELECT * FROM savedacc WHERE UserID = ?");
+        $tb_Userdata->execute([$userID]);
+        // Count rows
+        $tbl_rows = $tb_Userdata->rowCount();
+        // Fetch rows
+        $tbl_data_fetch = $tb_Userdata->fetchall();
+
+
+        // Logout code 
+        if(isset($_POST["logout"])){
+            // Delete the Session to logout
+            session_unset();
+            session_destroy();
+            header("Location: index.php");
+            exit();
+        }
         ?>
         <body id="page-top">
 
@@ -82,46 +102,41 @@
                             <div class="card text-center mx-3">
                             <div class="card shadow ">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">DataTables For <?php echo $userinfo["Fullname"] ?></h6>
                             </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
+                                        <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                                            <thead class="thead-dark">
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>Website</th>
+                                                    <th>Username</th>
+                                                    <th>Email</th>
+                                                    <th>Password</th>
+                                                    <th>Manage</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                </tr>
+                                                <?php 
+                                                    if($tbl_rows > 0){
+                                                        foreach($tbl_data_fetch as $tbl_data_fetching){?>
+                                                            <tr>
+                                                                <td><?php echo $tbl_data_fetching["Websitename"]?></td>
+                                                                <td><?php echo $tbl_data_fetching["Usernameacc"]?></td>
+                                                                <td><?php echo $tbl_data_fetching["Emailacc"]?></td>
+                                                                <td><?php echo $tbl_data_fetching["Passwordacc"]?></td>
+                                                                <td>Manage</td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                    }else{?>
+                                                        <tr>
+                                                            <td class="text-center" colspan="5">There is not Account Yet <a href="dashboard.php"><i class="fa-solid fa-plus"></i> Add New Account</a></td>
+                                                        </tr>
+                                                    <?php
+                                                    }
+
+                                                ?>
                                             </tbody>
                                         </table>
                             </div>

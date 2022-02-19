@@ -13,6 +13,15 @@
         $userinfo_fetch = $conn->prepare("SELECT * FROM users WHERE Username = ?");
         $userinfo_fetch->execute([$usr_sess]);
         $userinfo = $userinfo_fetch->fetch();
+
+        // Logout code 
+        if(isset($_POST["logout"])){
+            // Delete the Session to logout
+            session_unset();
+            session_destroy();
+            header("Location: index.php");
+            exit();
+        }
         ?>
                     <body id="page-top">
 
