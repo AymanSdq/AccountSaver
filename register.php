@@ -15,7 +15,9 @@
                     $fullname = trim($_POST["fullname"]);
                     $rpass = trim($_POST["reppass"]);
                     $pincode = trim($_POST["pincode"]);
-                    $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);;
+                    // Hashing important 
+                    $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
+                    $hashed_pin = password_hash($pincode, PASSWORD_DEFAULT);
                     
                     // Checking if it's empty
                     if(empty($username) or empty($email) or empty($pass) or empty($rpass) or empty($fullname) or empty($pincode)){
@@ -36,9 +38,9 @@
                         } else {
                             // Adding user into database
                             $add_account = $conn->prepare("INSERT INTO users (Username,Email,Password,Fullname,PIN) VALUES (?,?,?,?,?)");
-                            $add_account->execute([$username,$email,$hashed_pass,$fullname,$pincode]);
+                            $add_account->execute([$username,$email,$hashed_pass,$fullname,$hashed_pin]);
                             if($add_account){
-                                header("Location: index.php");
+                                header("Location: index.php?msg=account-created-success");
                                 exit();
                             }
                         }
@@ -84,7 +86,8 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text"  name="pincode" class="form-control form-control-user" maxlength="4" placeholder="PIN CODE" id="pin" pattern="^[0-9]{4}$git " required/>
+                                                <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="pincode" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4" required>
+                                                <small id="pinhelp" class="form-text text-danger">Make sure you enter 4 Digital code (Don't share it & don't forget it.).</small>
                                             </div>
                                             <button type="submit" name="register" class="btn btn-primary btn-user btn-block">
                                                 Register Account
