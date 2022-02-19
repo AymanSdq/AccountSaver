@@ -223,7 +223,7 @@
 
                                             </div>
                                             <div class="card-footer text-muted border border-secondary">
-                                                PIN Needed <a href="#">Forgot Pin</a>
+                                                PIN Needed <a href="forgotpin.php">Forgot Pin</a>
                                             </div>
                                         </div>
                                         <hr>
