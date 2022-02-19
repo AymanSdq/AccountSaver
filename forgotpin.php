@@ -1,4 +1,7 @@
-<?php include "templates/header.php";
+
+<?php 
+$pageTitle = 'AccountSaver - PinReset';
+include "templates/header.php";
 
 session_start();
 
@@ -18,10 +21,11 @@ if(!isset($_SESSION["username_sess"])){
     // on click on change it 
     if(isset($_POST["changeit"])){
         $pin_get = trim($_POST["passch"]);
+        $get_usern = $getting_info_user["Username"];
         // Verifyinging if the password is correct
         $pass_check = password_verify($pin_get,$getting_info_user['Password']);
         if($pass_check == TRUE){
-            header("Location: forgotpin.php?msg=Success");
+            header("Location: resetpin.php?Username=$get_usern");
             exit();
         }else{
             header("Location: forgotpin.php?msg=IncorrectPassword");
