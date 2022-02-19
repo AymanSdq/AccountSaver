@@ -9,6 +9,27 @@ if(!isset($_SESSION["username_sess"])){
     header('Location: dashboard.php');
     exit();
 }else{
+    // Variable to save user session
+    $user_sess = $_SESSION["username_sess"];
+    // Fetching the User Information
+    $user_ft = $conn->prepare("SELECT * from users WHERE Username = ?");
+    $user_ft->execute([$user_sess]);
+    $getting_info_user = $user_ft->fetch();
+    // on click on change it 
+    if(isset($_POST["changeit"])){
+        $pin_get = trim($_POST["passch"]);
+        // Verifyinging if the password is correct
+        $pass_check = password_verify($pin_get,$getting_info_user['Password']);
+        if($pass_check == TRUE){
+            header("Location: forgotpin.php?msg=Success");
+            exit();
+        }else{
+            header("Location: forgotpin.php?msg=IncorrectPassword");
+            exit();
+        }
+    }
+
+
     ?>
         <body class="bg-gradient-primary">
 
@@ -31,13 +52,13 @@ if(!isset($_SESSION["username_sess"])){
                                                 <p class="mb-4">We get it, stuff happens. Just enter your accountpassword below
                                                     and we will help you to change your password</p>
                                             </div>
-                                            <form class="user">
+                                            <form class="user" method="POST" action="">
                                                 <div class="form-group">
-                                                    <input type="password" class="form-control form-control-user"
+                                                    <input type="password" name="passch" class="form-control form-control-user"
                                                         id="exampleInputEmail" 
                                                         placeholder="Enter Password" required>
                                                 </div>
-                                                <button class="btn btn-primary btn-user btn-block">
+                                                <button type="submit" name="changeit" class="btn btn-primary btn-user btn-block">
                                                     Reset PIN
                                                 </button>
                                             </form>
