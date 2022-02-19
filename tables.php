@@ -6,6 +6,9 @@
     if(!isset($_SESSION["username_sess"])){
         header("Location: index.php?");
         exit();
+    }else if(!isset( $_SERVER['HTTP_REFERER'])){
+        header('Location: dashboard.php');
+        exit();
     }else{
         // Getting the session name
         $usr_sess = $_SESSION["username_sess"];

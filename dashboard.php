@@ -40,6 +40,21 @@
             }
 
         }
+        // TO Data tables
+
+        if(isset($_POST["dataaccess"])){
+            $get_pin = $_POST["pincodeacc"];
+            // Fetching User 
+            $check_pin = password_verify($get_pin,$userinfo['PIN']);
+            if($check_pin == TRUE){
+                header('Location: tables.php');
+                exit();
+            }else{
+                header('Location: dashboard.php?msg=incorrect-pin');
+                exit();
+            }
+        }
+        
         // Logout code 
         if(isset($_POST["logout"])){
             // Delete the Session to logout
@@ -114,7 +129,7 @@
                                     <div class="container-fluid">
                                         <div class="card">
                                         <div class="card-header text-center bg-primary text-white">
-                                            Add Accounts
+                                        <i class="fa-solid fa-plus"></i> Add Accounts
                                         </div>
                                         <div class="card-body text-center">
                                             <h5 class="card-title">Save your account information</h5>
@@ -172,9 +187,40 @@
                                                 Show Accounts
                                             </div>
                                             <div class="card-body">
-                                                <h5 class="card-title">Special title treatment</h5>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                <h5 class="card-title">Data Tables</h5>
+                                                <p class="card-text">Checking all your saved Accounts .</p>
+                                                <!-- Modal  -->
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pincode" data-whatever="@fat"><i class="fa-solid fa-table"></i> Account Saved</button>
+
+                                                <div class="modal fade" id="pincode" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="pincode">New message</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="" method="POST">
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">PIN CODE:</label>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="pincodeacc" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4" required>
+                                                                    <small id="pinhelp" class="form-text text-danger">Enter your pin code to get access to your Data table (4 DIGITAL Numbers).</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" name="dataaccess" class="btn btn-primary">Send message</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                                </div>
+
                                             </div>
                                             <div class="card-footer text-muted border border-secondary">
                                                 PIN Needed <a href="#">Forgot Pin</a>
