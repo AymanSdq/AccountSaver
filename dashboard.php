@@ -150,22 +150,22 @@
                                                         <!-- Website Name -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Website Name :</label>
-                                                            <input type="text" name="webname" class="form-control" id="recipient-name" required>
+                                                            <input type="text" name="webname" class="form-control" id="recipient-name"  autocomplete="off" required>
                                                         </div>
                                                         <!-- Username of Account  -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Username :</label>
-                                                            <input type="text" name="username" class="form-control" id="recipient-name" required>
+                                                            <input type="text" name="username" class="form-control" id="recipient-name"  autocomplete="off" required>
                                                         </div>
                                                         <!-- Email of Account  -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Email :</label>
-                                                            <input type="text" name="email" class="form-control" id="recipient-name" required>
+                                                            <input type="text" name="email" class="form-control" id="recipient-name"  autocomplete="off" required>
                                                         </div>
                                                         <!-- Password of Account  -->
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="float-left">Password :</label>
-                                                            <input type="password" name="password" class="form-control" id="recipient-name" required>
+                                                            <input type="password" name="password" class="form-control" id="recipient-name"  autocomplete="off" required>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -203,10 +203,10 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <form action="" method="POST">
-                                                            <div class="form-group">
+                                                            <div class="form-group"> autocomplete="off" 
                                                                 <label for="recipient-name" class="col-form-label">PIN CODE:</label>
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="pincodeacc" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4" required>
+                                                                    <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="pincodeacc" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4"  autocomplete="off" required>
                                                                     <small id="pinhelp" class="form-text text-danger">Enter your pin code to get access to your Data table (4 DIGITAL Numbers).</small>
                                                                 </div>
                                                             </div>

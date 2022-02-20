@@ -60,7 +60,7 @@ if(!isset($_SESSION["username_sess"])){
                                                 <div class="form-group">
                                                     <input type="password" name="passch" class="form-control form-control-user"
                                                         id="exampleInputEmail" 
-                                                        placeholder="Enter Password" required>
+                                                        placeholder="Enter Password"  autocomplete="off" required>
                                                 </div>
                                                 <button type="submit" name="changeit" class="btn btn-primary btn-user btn-block">
                                                     Reset PIN

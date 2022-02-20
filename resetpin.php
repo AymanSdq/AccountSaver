@@ -49,13 +49,13 @@ if(!isset($_SESSION["username_sess"])){
                             <h2 class="text-center"><i class="fa-solid fa-wrench"></i> Manage PIN CODE</h2>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">New PIN CODE</label>
-                                <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="pincd" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4" required>
+                                <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="pincd" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4"  autocomplete="off" required>
                                 <small id="pinhelp" class="form-text text-danger">Enter your new pin code to change it (4 DIGITAL Numbers).</small>
 
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputemail">Repeat PIN CODE</label>
-                                <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="repincd" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4" required>
+                                <input type="text" class="form-control form-control-user" id="pin" placeholder="PIN CODE" name="repincd" aria-describedby="pinhelp" pattern="[0-9]{4}" maxlength="4"  autocomplete="off" required>
 
                             </div>
                             <hr>
